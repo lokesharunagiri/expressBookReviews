@@ -37,7 +37,7 @@ const authenticatedUser=(username,password)=>{
 app.use("/customer/auth/*", function auth(req,res,next){
 //Write the authenication mechanism here
 if(req.session.authorization){
-    token=req.session.authorization['access token'];
+    token=req.session.authorization['accessToken'];
     jwt.verify(token,"access",(err,user)=>{
         if(!err)
         {
