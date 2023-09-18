@@ -28,11 +28,11 @@ regd_users.post("/login", (req,res) => {
       return res.status(404).json({message:"Invalid Credentials"})
   }
   if(authenticatedUser(username,password)){
-      let accesstoken=jwt.sign({
+      let accessToken=jwt.sign({
           data:password  
       },'access',{expiresIn:60*60});
       req.session.authorization={
-          accesstoken,username
+          accessToken,username
       }
       return res.status(200).send("Successfully logged in");
   }else{
